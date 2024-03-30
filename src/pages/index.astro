@@ -1,0 +1,34 @@
+---
+import Experience from '../components/Experience.astro';
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+
+const experiences = [
+	{
+		title: 'WordPress',
+		description: '3+ years of Experience'
+	},
+	{
+		title: 'php',
+		description: '2+ years of Experience'
+	},
+	{
+		title: 'JavaScript',
+		description: '2.5+ years of Experience'
+	},
+	{
+		title: 'CSS',
+		description: '3+ years of Experience'
+	},
+]
+---
+
+<DefaultLayout>
+	<title slot="pagetitle">Orlan Castro - Portfolio</title>
+	<h1>Astro</h1>
+	<div class="grid grid-cols-4 max-w-7xl mx-auto w-full justify-center justify-items-center items-center gap-4">
+	{	
+		experiences.map(experience => <Experience title={experience.title} desc={experience.description}/>)
+	}
+
+	</div>
+</DefaultLayout>
