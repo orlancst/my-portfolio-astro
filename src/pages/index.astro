@@ -1,34 +1,84 @@
 ---
 import Experience from '../components/Experience.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Work from '../components/Work.astro';
+import Social from '../components/Social.astro';
 import DefaultLayout from '../layouts/DefaultLayout.astro';
+import ArraySocials from '../information/socials.json';
 
 const experiences = [
 	{
 		title: 'WordPress',
-		description: '3+ years of Experience'
+		description: '3+ years of experience'
 	},
 	{
 		title: 'php',
-		description: '2+ years of Experience'
+		description: '2+ years of experience'
 	},
 	{
 		title: 'JavaScript',
-		description: '2.5+ years of Experience'
+		description: '2.5+ years of experience'
 	},
 	{
 		title: 'CSS',
-		description: '3+ years of Experience'
+		description: '3+ years of experience'
 	},
-]
+	{
+		title: 'Astro',
+		description: '7 months of experience'
+	},
+];
+
+const socials = [ArraySocials.socials];
+
 ---
 
 <DefaultLayout>
 	<title slot="pagetitle">Orlan Castro - Portfolio</title>
-	<h1>Astro</h1>
-	<div class="grid grid-cols-4 max-w-7xl mx-auto w-full justify-center justify-items-center items-center gap-4">
-	{	
-		experiences.map(experience => <Experience title={experience.title} desc={experience.description}/>)
-	}
+	<div>
+		<div id="home" class="mx-24">
+			<div class="flex flex-row gap-4 mt-4">
+				<div class="grid content-center w-1/2">
+					<h5>¡Hi! I'm <b>Orlan Castro</b> and I'm a</h5>
+					<h1 class="text-5xl font-bold uppercase">FrontEnd Develeper</h1>
+				</div>
+				<div class="w-1/2 flex justify-center">
+					<img src="https://images.pexels.com/photos/16642980/pexels-photo-16642980/free-photo-of-gente-conexion-tecnologia-monitor.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="rounded-lg w-[300px]">
+				</div>
+			</div>
+			
+		</div>
+		<div id="about" class="mt-3 mx-24">
+			<SectionHeader title="About" />
+			<p class="mt-6 text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio dignissimos alias ipsam placeat. Officia qui, facere assumenda reprehenderit nam sapiente sequi incidunt aut molestiae rem corrupti iste laudantium placeat ea?</p>
+
+			<div class="grid grid-cols-4 max-w-7xl mx-auto w-full justify-center justify-items-center items-center mt-6">
+			{	
+				experiences.map(experience => <Experience title={experience.title} desc={experience.description}/>)
+			}
+			</div>
+		</div>
+
+		<div id="work" class="mt-3 mx-24">
+			<SectionHeader title="Work" />
+			<p class=" mt-6 text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio dignissimos alias ipsam placeat. Officia qui, facere assumenda reprehenderit nam sapiente sequi incidunt aut molestiae rem corrupti iste laudantium placeat ea?</p>
+
+			<div class="grid grid-cols-2 max-w-7xl gap-8 justify-center justify-items-center items-center mt-6">
+				<Work imagePath='/src/assets/byhourspage.png' imgAltText='ByHours' name='ByHours' lang={["WordPress", "JavaScript", "php", "HTML", "CSS", "JQuery"]}/>
+				<Work imagePath='/src/assets/byhourspage.png' imgAltText='ByHours' name='ByHours' lang={["WordPress", "JavaScript", "php", "HTML", "CSS", "JQuery"]}/>
+			</div>
+		</div>
+
+		<div id="contact" class="mt-3 mx-24">
+			<SectionHeader title="Contact Me" />
+			<p class=" mt-6 text-justify">Want to contact me? Please email me at <a href="mailto:orlancssst@gmail.com"><b>orlancssst@gmail.com</b></a> or follow me on my socials:</p>
+
+			<div class="grid grid-cols-4 max-w-7xl gap-8 justify-center justify-items-center items-center mt-6">
+
+			</div>
+		</div>
 
 	</div>
+
+	
 </DefaultLayout>

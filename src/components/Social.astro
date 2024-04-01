@@ -1,0 +1,16 @@
+---
+const { iconPath, title, url } = Astro.props;
+---
+
+<a href="#" class="flex flex-col">
+  <div class="[&>svg]:h-5 [&>svg]:w-5">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 496 512">
+        <path
+          d={iconPath} />
+      </svg>
+  </div>
+  <h5>{title}</h5>
+</a>

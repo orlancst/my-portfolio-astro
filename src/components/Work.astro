@@ -1,0 +1,26 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from "astro:assets";
+
+interface Props {
+    imagePath: string;
+    imgAltText?: string;
+    name: string;
+    lang: string[];
+}
+
+const { imagePath, imgAltText, name, lang } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}')
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+---
+
+<div class="flex flex-col">
+    <Image src={images[imagePath]()} alt={imgAltText} class="rounded" />
+
+    <h5 class="text-2xl font-bold uppercase mt-4">{name}</h5>
+    <div class="flex gap-x-3 flex-wrap">
+        {
+            lang.map((item, index) => <span class="uppercase text-base">{item}</span>)
+        }
+    </div>
+</div>
