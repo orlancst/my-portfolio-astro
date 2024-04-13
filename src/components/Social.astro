@@ -1,9 +1,15 @@
 ---
 const { iconPath, title, url } = Astro.props;
+
+interface Props {
+  iconPath: string;
+  title: string;
+  url: string;
+}
 ---
 
-<a href="#" class="flex flex-col">
-  <div class="[&>svg]:h-5 [&>svg]:w-5">
+<a href={url} target="_blank" class="flex flex-col">
+  <div class="[&>svg]:h-16 [&>svg]:w-16">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
@@ -12,5 +18,5 @@ const { iconPath, title, url } = Astro.props;
           d={iconPath} />
       </svg>
   </div>
-  <h5>{title}</h5>
+  <h5 class="mt-3 text-center font-bold">{title}</h5>
 </a>

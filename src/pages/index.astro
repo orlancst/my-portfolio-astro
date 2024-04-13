@@ -29,7 +29,12 @@ const experiences = [
 	},
 ];
 
-const socials = [ArraySocials.socials];
+const socials = ArraySocials.socials;
+
+// la linea de abajo permite que el contenido se genere de manera estatica por lo que proporciona rapidez al general el contenido.
+// para realizar peticiones al servidor con la finalidad de generar contenido dinamico o obtener datos, cambia el valor a false.
+export const prerender = true;
+// en astro.config.mjs, el campo de output esta en hybrid.
 
 ---
 
@@ -69,12 +74,14 @@ const socials = [ArraySocials.socials];
 			</div>
 		</div>
 
-		<div id="contact" class="mt-3 mx-24">
+		<div id="contact" class="mt-8 mx-24">
 			<SectionHeader title="Contact Me" />
 			<p class=" mt-6 text-justify">Want to contact me? Please email me at <a href="mailto:orlancssst@gmail.com"><b>orlancssst@gmail.com</b></a> or follow me on my socials:</p>
 
-			<div class="grid grid-cols-4 max-w-7xl gap-8 justify-center justify-items-center items-center mt-6">
-
+			<div class="grid grid-cols-3 max-w-7xl gap-8 justify-center justify-items-center items-center mt-6">
+				{
+					socials.map(social => <Social title={social.name} iconPath={social.path} url={social.url} />)
+				}
 			</div>
 		</div>
 
